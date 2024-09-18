@@ -1,0 +1,14 @@
+{{- define "title" }}
+    {{- T "pageNotFound" | printf "404 %v" }} - {{ .Site.Title -}}
+{{- end -}}
+
+{{- define "content" -}}
+    <div class="page" id="content-404">
+        <h2>404</h2>
+        <p>
+            {{- T "pageNotFoundText" -}}
+        </p>
+        <a href="{{ .Site.Home.RelPermalink }}" title="{{ T `home` }}">{{ T `home` }}</a>
+        <a href="#" title="{{ T `back` }}" onclick="window.history.back();">{{ T `back` }}</a>
+    </div>
+{{- end -}}

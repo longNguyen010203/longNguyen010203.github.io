@@ -1,0 +1,93 @@
+{{- $cdn := .Scratch.Get "cdn" | default dict -}}
+{{- $fingerprint := .Scratch.Get "fingerprint" -}}
+{{- $params := .Scratch.Get "params" -}}
+{{- $offline := $params.offline -}}
+
+{{- if not .Site.Params.app.noFavicon -}}
+    {{- with .Site.Params.app.svgFavicon -}}
+        <link rel="icon" href="{{ . }}">
+    {{- else -}}
+        <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    {{- end -}}
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    {{- with .Site.Params.app.iconColor -}}
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="{{ . }}">
+    {{- end -}}
+    <link rel="manifest" href="/site.webmanifest">
+{{- end -}}
+
+<link rel="canonical" href="{{ .Permalink }}" />
+{{- if ne $offline true -}}
+{{- if .PrevInSection -}}
+    <link rel="prev" href="{{ .PrevInSection.Permalink }}" />
+{{- end -}}
+{{- if .NextInSection -}}
+    <link rel="next" href="{{ .NextInSection.Permalink }}" />
+{{- end -}}
+
+{{- with .OutputFormats.Get "RSS" -}}
+    <link rel="alternate" href="{{ .RelPermalink }}" type="application/rss+xml" title="{{ $.Site.Title }}">
+    <link rel="feed" href="{{ .RelPermalink }}" type="application/rss+xml" title="{{ $.Site.Title }}">
+{{- end -}}
+
+
+{{- if not .IsHome -}}
+
+{{- $aboutPage := site.GetPage "/about" -}}
+{{- if eq .Page $aboutPage -}}
+{{- /* about.min.css */ -}}
+{{- if .Site.Params.SourceMap -}}
+{{- $style := dict "Source" "css/about.scss" "Fingerprint" $fingerprint -}}
+{{- $options := dict "targetPath" "css/about.min.css" "enableSourceMap" true -}}
+{{- $style = dict "Context" . "ToCSS" $options | merge $style -}}
+{{- partial "plugin/style.html" $style -}}
+{{- else -}}
+{{- $style := dict "Source" "css/about.scss" "Fingerprint" $fingerprint -}}
+{{- $options := dict "targetPath" "css/about.min.css" "enableSourceMap" false -}}
+{{- $style = dict "Context" . "ToCSS" $options | merge $style -}}
+{{- partial "plugin/style.html" $style -}}
+{{- end -}}
+{{ end }}
+
+{{- /* page.min.css */ -}}
+{{- if .Site.Params.SourceMap -}}
+{{- $style := dict "Source" "css/page.scss" "Fingerprint" $fingerprint -}}
+{{- $options := dict "targetPath" "css/page.min.css" "enableSourceMap" true -}}
+{{- $style = dict "Context" . "ToCSS" $options | merge $style -}}
+{{- partial "plugin/style.html" $style -}}
+{{- else -}}
+{{- $style := dict "Source" "css/page.scss" "Fingerprint" $fingerprint -}}
+{{- $options := dict "targetPath" "css/page.min.css" "enableSourceMap" false -}}
+{{- $style = dict "Context" . "ToCSS" $options | merge $style -}}
+{{- partial "plugin/style.html" $style -}}
+{{- end -}}
+{{- end -}}
+{{- end -}}
+
+{{- /* home.min.css */ -}}
+{{- if .Site.Params.SourceMap -}}
+{{- $style := dict "Source" "css/home.scss" "Fingerprint" $fingerprint -}}
+{{- $options := dict "targetPath" "css/home.min.css" "enableSourceMap" true -}}
+{{- $style = dict "Context" . "ToCSS" $options | merge $style -}}
+{{- partial "plugin/style.html" $style -}}
+{{- else -}}
+{{- $style := dict "Source" "css/home.scss" "Fingerprint" $fingerprint -}}
+{{- $options := dict "targetPath" "css/home.min.css" "enableSourceMap" false -}}
+{{- $style = dict "Context" . "ToCSS" $options | merge $style -}}
+{{- partial "plugin/style.html" $style -}}
+{{- end -}}
+
+{{- if ne $offline true -}}
+{{- $analytics := .Site.Config.Privacy.GoogleAnalytics -}}
+{{- if not $analytics.Disable }}{{ with .Site.GoogleAnalytics -}}
+    {{ if hasPrefix . "G-"}}
+        <link href="https://www.googletagmanager.com" rel="preconnect" crossorigin>
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    {{ else if hasPrefix . "UA-" }}
+        <link href="https://www.google-analytics.com" rel="preconnect" crossorigin>
+        <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    {{- end -}}
+{{- end -}}{{ end -}}
+{{- end -}}

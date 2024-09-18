@@ -1,0 +1,61 @@
+html {
+  font-family: $global-font-family;
+  font-weight: $global-font-weight;
+  font-size: $global-font-size;
+  line-height: $global-line-height;
+  width:100%;
+  scroll-behavior: smooth;
+}
+
+:target:before {
+    content: "";
+    display: block;
+    height: 70px;
+    margin-top: -70px;
+}
+
+/* scrollbar, only support webkit */
+::-webkit-scrollbar {
+  width: .5rem;
+  height: .5rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $scrollbar-color;
+
+  &:hover {
+    background-color: $scrollbar-hover-color;
+  }
+}
+
+::selection {
+  background-color: $selection-color;
+
+  [theme=dark] & {
+    background-color: $selection-color-dark;
+  }
+}
+
+body {
+  background-color: $global-background-color;
+  color: $global-font-color;
+  @include overflow-wrap(break-word);
+
+  &[theme=dark] {
+    color: $global-font-color-dark;
+    background-color: $global-background-color-dark;
+  }
+}
+
+@include ms;
+@include link(true, true);
+
+@import "../_partial/mask";
+@import "../_partial/icon";
+@import "../_partial/details";
+@import "../_partial/fixed-button";
+@import "../_partial/cookieconsent";
+
+img {
+  @include object-fit(contain);
+}

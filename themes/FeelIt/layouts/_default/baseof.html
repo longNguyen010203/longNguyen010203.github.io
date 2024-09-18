@@ -1,0 +1,85 @@
+{{- partial "init.html" . -}}
+
+{{- $params := .Scratch.Get "params" -}}
+{{- $pwa := .Scratch.Get "pwa" -}}
+{{- $offline := $params.offline -}}
+
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>
+            {{- block "title" . }}{{ .Site.Title }}{{ end -}}
+        </title>
+
+        {{- partial "head/meta.html" . -}}
+        {{- partial "head/link.html" . -}}
+        {{- partial "head/seo.html" . -}}
+
+        {{- $analytics := .Site.Config.Privacy.GoogleAnalytics -}}
+        {{- if and (not $analytics.Disable) (.Site.GoogleAnalytics) -}}
+            {{- template "_internal/google_analytics.html" . -}}
+        {{- end -}}
+    </head>
+    {{- if ne $offline true -}}
+    <body data-header-desktop="{{ .Site.Params.header.desktopMode }}" data-header-mobile="{{ .Site.Params.header.mobileMode }}">
+        {{- /* Check theme isDark before body rendering */ -}}
+        {{- $theme := .Site.Params.defaulttheme -}}
+        <script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('{{ $theme }}' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : '{{ $theme }}' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div>
+
+        {{- /* Body wrapper */ -}}
+        <div class="wrapper">
+            {{- partial "header.html" . -}}
+            <main class="main">
+                <div class="container">
+                    {{- block "content" . }}{{ end -}}
+                </div>
+            </main>
+            <footer class="footer">
+            {{- if ne .Site.Params.footer.enable false -}}
+            {{- partial "footer.html" . -}}
+            {{- end -}}
+            {{- if and (eq hugo.Environment "production") ($pwa.enable) -}}
+            {{- partial "pwa.html" . -}}
+            {{- end -}}
+            </footer>
+        </div>
+
+        <div id="fixed-buttons">
+            {{- /* top button */ -}}
+            <a href="#" id="back-to-top" class="fixed-button" title="{{ T `backToTop` }}">
+                <i class="fa-solid fa-chevron-up fa-fw"></i>
+            </a>
+
+            {{- /* comment button */ -}}
+            {{- if .Site.Params.page.comment.enable -}}
+            <a href="#" id="view-comments" class="fixed-button" title="{{ T `viewComments` }}">
+                <i class="fa-solid fa-comment-alt fa-fw"></i>
+            </a>
+            {{- end -}}
+        </div>
+
+        {{- /* Load JavaScript scripts and CSS */ -}}
+        {{- partial "assets.html" . | replaceRE `<script src="/sw.min.js"></script>` `` | safeHTML -}}
+    </body>
+    {{- else if eq $offline true -}}
+    <body>
+        {{- /* Check theme isDark before body rendering */ -}}
+        {{- $theme := .Site.Params.defaulttheme -}}
+        <script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('{{ $theme }}' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : '{{ $theme }}' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        {{- /* Body wrapper */ -}}
+        <div class="wrapper">
+            <main class="main">
+                <div class="container">
+                    {{- block "content" . }}{{ end -}}
+                </div>
+            </main>
+        </div>
+    </body>
+    {{- end -}}
+</html>

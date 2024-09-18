@@ -1,0 +1,31 @@
+name: Page Test
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
+          fetch-depth: 0
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+          extended: true
+
+      - name: Build Page
+        env:
+          HUGO_OEMBED_ACCESSTOKEN: ${{ secrets.HUGO_OEMBED_ACCESSTOKEN }}
+          HUGO_VSSUE_CLIENTSECRET: ${{ secrets.HUGO_VSSUE_CLIENTSECRET }}
+        run: |
+            npm ci
+            npm run deploy
+
+      - name: Validate HTML
+        run: |
+            wget -P ./exampleSite https://github.com/validator/validator/releases/download/latest/vnu.jar
+            java -jar ./exampleSite/vnu.jar --verbose --skip-non-html --also-check-css --errors-only ./exampleSite/public

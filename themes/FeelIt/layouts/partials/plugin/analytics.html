@@ -1,0 +1,18 @@
+{{- $analytics := .Scratch.Get "analytics" | default dict -}}
+{{- $params := .Scratch.Get "params" -}}
+
+{{- if $analytics.enable -}}
+    {{- /* Fathom Analytics */ -}}
+    {{- with $analytics.fathom.id -}}
+        <script>
+            window.fathom=window.fathom||function(){(fathom.q=fathom.q||[]).push(arguments);};
+            fathom('set', 'siteId', '{{ . }}');
+            fathom('trackPageview');
+        </script>
+        {{- dict "Source" ($analytics.fathom.server | default "cdn.usefathom.com" | printf "https://%v/tracker.js") "Async" true "Attr" "id=fathom-script" | partial "plugin/script.html" -}}
+    {{- end -}}
+    {{- /* GoatCounter Analytics */ -}}
+    {{- with $analytics.goatcounter.code -}}
+        <script data-goatcounter="https://{{.}}.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    {{- end -}}
+{{- end -}}

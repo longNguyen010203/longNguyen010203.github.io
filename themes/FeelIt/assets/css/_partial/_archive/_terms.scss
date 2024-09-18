@@ -1,0 +1,80 @@
+.categories-card {
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: wrap;
+  line-height: 1.6rem;
+
+  .card-item {
+    font-size: .875rem;
+    text-align: left;
+    width: 49%;
+    display: flex;
+    margin-top: 1rem;
+    min-height: 16rem;
+    padding: 0 2%;
+    position: relative;
+    background-color: $global-background-card-color;
+    @include box-shadow(0 2px 4px -1px rgba(0, 0, 0, 0.2));
+    @include border-radius(.5rem);
+    [theme=dark] & {
+      background-color: $global-background-card-color-dark;
+    }
+
+    .card-item-wrapper {
+      width: 100%;
+      overflow: hidden;
+      text-align: center;
+
+      .card-item-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-top: 1rem;
+        padding-bottom: .75rem;
+        border-bottom: 2px solid $global-border-color;
+        [theme=dark] & {
+          border-color: $global-border-color-dark;
+        }
+      }
+
+      span {
+        float: right;
+        padding-right: 1rem;
+      }
+    }
+  }
+}
+
+.categories-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  margin: .25rem 0 .25rem 1.5rem;
+}
+
+.categories-item-link {
+  min-width: 10%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  &:hover {
+    color: $global-link-hover-color;
+    background-color: transparent;
+  }
+
+  [theme=dark] & {
+    color: $global-link-color-dark;
+
+    &:hover {
+      color: $global-link-hover-color-dark;
+    }
+  }
+}
+
+.more-post {
+  text-align: right;
+}

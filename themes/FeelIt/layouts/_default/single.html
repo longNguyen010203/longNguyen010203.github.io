@@ -1,0 +1,116 @@
+{{- define "title" }}{{ .Title }} - {{ .Site.Title }}{{ end -}}
+
+{{- define "content" -}}
+    {{- $params := .Scratch.Get "params" -}}
+
+    {{- $offline := $params.offline -}}
+    {{- if ne $offline true -}}
+
+    {{- $about := .Site.Params.about -}}
+    {{- $profile := .Site.Params.home.profile -}}
+    {{- $aboutPage := site.GetPage "/about" -}}
+
+    {{- if eq .Page $aboutPage -}}
+    <article class="{{- if or (eq $about.enable false) (eq $profile.enable false) -}}page single special{{- else -}}page single{{- end -}}">
+
+        {{- /* Title */ -}}
+        <h2 class="single-title animated fadeInDown faster" data-about="true">
+            {{- .Title -}}
+        </h2>
+
+        {{- if and (eq $about.enable true) (eq $profile.enable true) -}}
+        <div class="single-card" data-param="{{- if eq $about.param true -}}on{{- else -}}off{{- end -}}" data-about="true">
+        {{- partial "about/profile.html" . -}}
+        {{- if eq $about.param true -}}
+        {{- partial "about/parameter.html" . -}}
+        {{- end -}}
+        </div>
+        {{- end -}}
+
+        <div class="single-card">
+            {{- /* Content */ -}}
+            <div class="content" id="content">
+                {{- $content := .Content -}}
+                {{- $content = dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" -}}
+                {{- $content | replaceRE "<p><figure>" "<figure>" | replaceRE "(?s:</figure>\n?</p>)" "</figure>" | replaceRE "https://www.w3.org/" "http://www.w3.org/"| replaceRE "font-weight:550" "font-weight:500" | replaceRE "<section" "<div" | replaceRE "</section" "</div" | replaceRE `<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">` `<div class="video">` | replaceRE ` style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;"` `` | replaceRE " webkitallowfullscreen mozallowfullscreen" "" | replaceRE "allowfullscreen" `allow="fullscreen"` | replaceRE `type="application/javascript"` `` | replaceRE `charset="utf-8"></script>` `></script>` | replaceRE `<div id="fb-root"></div>` `` | safeHTML -}}
+            </div>
+        </div>
+    </article>
+    {{- else if ne .Page $aboutPage -}}
+    {{- $toc := $params.toc -}}
+    {{- if eq $toc true -}}
+        {{- $toc = .Site.Params.page.toc | default dict -}}
+    {{- else if eq $toc false -}}
+        {{- $toc = dict "enable" false -}}
+    {{- end -}}
+
+    {{- /* Auto TOC */ -}}
+    {{- if ne $toc.enable false -}}
+        <div class="toc" id="toc-auto" style="{{- if $params.subtitle -}}top:10rem;{{ else }}top:8rem;{{ end }}">
+            <h2 class="toc-title">{{ T "contents" }}</h2>
+            <div class="toc-content{{ if eq $toc.auto false }} always-active{{ end }}" id="toc-content-auto"></div>
+        </div>
+    {{- end -}}
+
+    <article class="page single special" data-toc="{{ if ne $toc.enable true }}disable{{ else }}enable{{ end }}">
+
+        {{- /* Title */ -}}
+        <h2 class="single-title animated fadeInDown faster">
+            {{- .Title -}}
+        </h2>
+
+        {{- /* Subtitle */ -}}
+        {{- with $params.subtitle -}}
+            <h2 class="single-subtitle animated fadeInDown faster">{{ . }}</h2>
+        {{- end -}}
+
+        {{- /* Featured image */ -}}
+        {{- $image := $params.featuredimage -}}
+        {{- with .Resources.GetMatch "featured-image" -}}
+            {{- $image = .RelPermalink -}}
+        {{- end -}}
+        {{- with $image -}}
+            <div class="featured-image">
+                {{- dict "Src" . "Title" $.Description "Resources" $.Resources | partial "plugin/image.html" -}}
+            </div>
+        {{- end -}}
+        <div class="single-card" {{ with $image }}data-image="true"{{ end }}>
+            {{- /* Static TOC */ -}}
+            {{- if ne $toc.enable false -}}
+                <div class="details toc" id="toc-static"  data-kept="{{ if $toc.keepStatic }}true{{ end }}">
+                    <div class="details-summary toc-title">
+                        <span>{{ T "contents" }}</span>
+                        <span><i class="details-icon fa-solid fa-angle-right"></i></span>
+                    </div>
+                    <div class="details-content toc-content" id="toc-content-static">
+                        {{- dict "Content" .TableOfContents "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
+                    </div>
+                </div>
+            {{- end -}}
+
+            {{- /* Content */ -}}
+            <div class="content" id="content">
+                {{- $content := .Content -}}
+                {{- $content = dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" -}}
+                {{- $content | replaceRE "<p><figure>" "<figure>" | replaceRE "(?s:</figure>\n?</p>)" "</figure>" | replaceRE "https://www.w3.org/" "http://www.w3.org/"| replaceRE "font-weight:550" "font-weight:500" | replaceRE "<section" "<div" | replaceRE "</section" "</div" | replaceRE `<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">` `<div class="video">` | replaceRE ` style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;"` `` | replaceRE " webkitallowfullscreen mozallowfullscreen" "" | replaceRE "allowfullscreen" `allow="fullscreen"` | replaceRE `type="application/javascript"` `` | replaceRE `charset="utf-8"></script>` `></script>` | replaceRE `<div id="fb-root"></div>` `` | safeHTML -}}
+            </div>
+
+            {{- /* Footer */ -}}
+            {{- partial "single/footer.html" . -}}
+        </div>
+
+        {{- /* Comment */ -}}
+        {{- partial "comment.html" . -}}
+    </article>
+    {{- end -}}
+    {{- else if eq $offline true -}}
+    <article id="content-404">
+        <h2>{{ .Title }}</h2>
+        <p>
+            {{- T "pageOffline" -}}
+        </p>
+        <a href="{{ .Site.Home.RelPermalink }}" title="{{ T `home` }}">{{ T `home` }}</a>
+        <a href="#" title="{{ T `back` }}" onclick="window.history.back();">{{ T `back` }}</a>
+    </article>
+    {{- end -}}
+{{- end -}}

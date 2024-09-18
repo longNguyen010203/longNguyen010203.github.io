@@ -1,0 +1,28 @@
+.tag-cloud-tags {
+  text-align: center;
+  margin: 1rem 0 10px;
+
+  @include link(true, true);
+
+  a {
+    display: inline-block;
+    position: relative;
+    margin: 5px 15px;
+    @include overflow-wrap(break-word);
+    @include transition(all ease-out 0.3s);
+
+    &:active,
+    &:focus,
+    &:hover {
+      @include transform(scale(1.2));
+    }
+
+    sup {
+      color: $global-font-secondary-color;
+
+      [theme=dark] & {
+        color: $global-font-secondary-color-dark;
+      }
+    }
+  }
+}

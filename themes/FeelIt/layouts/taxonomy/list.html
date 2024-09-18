@@ -1,0 +1,49 @@
+{{- define "title" -}}
+    {{- .Title }} - {{ T .Data.Singular | default .Data.Singular }} - {{ .Site.Title -}}
+{{- end -}}
+
+{{- define "content" -}}
+    <div class="page archive">
+        {{- /* Title */ -}}
+        <h2 class="single-title animated fadeInDown faster">
+            {{- $taxonomy := .Data.Singular -}}
+            {{- if eq $taxonomy "category" -}}
+                {{ .Title }}
+            {{- else if eq $taxonomy "tag" -}}
+                {{ .Title }}
+            {{- else -}}
+                {{- printf "%v - %v" (T $taxonomy | default $taxonomy) .Title -}}
+            {{- end -}}
+        </h2>
+
+        {{- /* Paginate */ -}}
+        {{- if .Pages -}}
+            {{- $pages := .Pages.GroupByDate "2006" -}}
+            {{- with .Site.Params.list.paginate | default .Site.Params.paginate -}}
+                {{- $pages = $.Paginate $pages . -}}
+            {{- else -}}
+                {{- $pages = .Paginate $pages -}}
+            {{- end -}}
+            {{- range $pages.PageGroups -}}
+                <h3 class="group-title">{{ .Key }}</h3>
+                {{- range .Pages -}}
+                <div class="timeline">
+                    <div class="circle">
+                        <div class="item">
+                            <a href="{{ .RelPermalink }}" class="item-link">
+                                {{- .Title -}}
+                            </a>
+                        </div>
+                        <div class="item">
+                            <span class="item-date">
+                                Published&nbsp;on&nbsp;{{- $.Site.Params.list.dateFormat | default "01-02" | .Date.Format -}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                {{- end -}}
+            {{- end -}}
+            {{- partial "paginator.html" . -}}
+        {{- end -}}
+    </div>
+{{- end -}}
