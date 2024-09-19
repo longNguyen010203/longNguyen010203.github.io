@@ -658,52 +658,52 @@ We search for the `S3` service in the search bar, then click on `S3`
 ![image](./ETLELT - Project.png)
 
 After entering the `S3` service, click `Create Bucket`
-![image](./ETLELT - Project (1).png)
+![image](./(1).png)
 
 Next we enter the `bucket name`
-![image](./ETLELT - Project (2).png)
+![image](./(2).png)
 
 Enable `Bucket Versioning`
-![image](./ETLELT - Project (3).png)
+![image](./(3).png)
 
 Finally, click `Create Bucket` to initialize the bucket
-![image](./ETLELT - Project (4).png)
+![image](./(4).png)
 
 After completing the above operations, we will create a bucket in the region Singapore (ap-southeast-1)
-![image](./ETLELT - Project (5).png)
+![image](./(5).png)
 
 #### 5.2.2. Upload Resources
 Click on the previously created bucket, then select `Create folder`
-![image](./ETLELT - Project (6).png)
+![image](./(6).png)
 
 In the `Folder name` field, fill in `logs`, specify the encryption key for the folder, then click `Create folder`
-![image](./ETLELT - Project (7).png)
+![image](./(7).png)
 {{< admonition note "Why do we need to create a logs folder?" >}}
 EMR Cluster needs a path to a location in S3 to perform logging for cluster activities such as tasks, nodes,...
 {{< /admonition >}}
 
 We do the same with the `input`, `output` and `scripts` folders
-![image](./ETLELT - Project (8).png)
-![image](./ETLELT - Project (9).png)
-![image](./ETLELT - Project (10).png)
+![image](./(8).png)
+![image](./(9).png)
+![image](./(10).png)
 
 After completion, we have 4 folders as below
-![image](./ETLELT - Project (11).png)
+![image](./(11).png)
 
 In the `input` folder, we upload input data for `EMR Cluster`, first click `upload`
-![image](./ETLELT - Project (12).png)
+![image](./(12).png)
 
 then select `add files`
-![image](./ETLELT - Project (13).png)
+![image](./(13).png)
 
 then select the data file downloaded from the link above
-![image](./ETLELT - Project (14).png)
+![image](./(14).png)
 
 After confirming that we have added the correct data file, we select `upload`
-![image](./ETLELT - Project (15).png)
+![image](./(15).png)
 
 We do the same with the `scripts` folder, this folder will contain code that helps `transform` and `calculate` according to the needs and purposes of data use.
-![image](./ETLELT - Project (17).png)
+![image](./(16).png)
 
 In addition, the `output` folder is used to contain cluster output data
 
