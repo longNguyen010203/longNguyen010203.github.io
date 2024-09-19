@@ -192,7 +192,7 @@ Therefore, designing, building and managing big data processing systems is extre
 <!-- <div style="text-align: center;">
     <img src="./AWS-Architecture.drawio.png" style="width: 900px; height: auto;" alt="AWS Workshop Image">
 </div> -->
-![Diagram](./AWS-Architecture.drawio.png "Diagram")
+![Diagram](./AWS-Architecture.drawio.png "Batch Processing with Amazon EMR - Diagram")
 
 - 📦 Technology and Services:
    - `S3` 
@@ -622,59 +622,37 @@ Resources:
 ```
 
 On the search bar, enter the keyword CloudFormation, then click `CloudFormation` Service.
-<div style="text-align: center;">
-    <img src="1v.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./1v.png)
 
 Next we click `Create Stack`
-<div style="text-align: center;">
-    <img src="2v.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./2v.png)
 
 In the `Create Stack` interface, select `existing template`, then select `upload template`, continue to click `choose file` to select the file, after uploading the correct file you want, click `Next`.
-<div style="text-align: center;">
-    <img src="3v.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./3v.png)
 
 Enter the `Stack name` and select `Instance type`.
-<div style="text-align: center;">
-    <img src="4v.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./4v.png)
 
 Select the previously created `Key Pair`.
-<div style="text-align: center;">
-    <img src="5v.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./5v.png)
 
 Các thông số khác ta để nguyên và bấm `Next`.
-<div style="text-align: center;">
-    <img src="6v.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./6v.png)
 
 Continue clicking `Next` and finally click `Submit`.
-<div style="text-align: center;">
-    <img src="7v.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
-<div style="text-align: center;">
-    <img src="8v.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./7v.png)
+![image](./8v.png)
 
 We can see the `Services` and `features` being initialized according to the template we specified, we can click on the refresh icon to update the status.
-<div style="text-align: center;">
-    <img src="9v.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./9v.png)
 
 Now the `Stack` has been created successfully.
-<div style="text-align: center;">
-    <img src="10v.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./10v.png)
 
 ### 5.2. Manual Setup
 #### 5.2.1. Create S3 Bucket
 First we need to select `Region`, Here I choose `Singapore`
-<div style="text-align: center;">
-    <img src="set_region.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./set_region.png)
 
 We search for the `S3` service in the search bar, then click on `S3`
 <div style="text-align: center;">
