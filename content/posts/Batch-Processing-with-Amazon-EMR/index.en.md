@@ -655,7 +655,7 @@ First we need to select `Region`, Here I choose `Singapore`
 ![image](./set_region.png)
 
 We search for the `S3` service in the search bar, then click on `S3`
-![image](./ETLELT - Project.png)
+![image](./().png)
 
 After entering the `S3` service, click `Create Bucket`
 ![image](./(1).png)
