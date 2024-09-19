@@ -1,5 +1,5 @@
 relativeURLs = true
-baseURL = "http://longNguyen010203.github.io/longNguyen010203.github.io/"
+baseURL = "http://longNguyen010203.github.io/"
 # [en, zh-cn, fr, ...] determines default content language
 defaultContentLanguage = "en"
 # language code
