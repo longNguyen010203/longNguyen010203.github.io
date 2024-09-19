@@ -655,94 +655,55 @@ First we need to select `Region`, Here I choose `Singapore`
 ![image](./set_region.png)
 
 We search for the `S3` service in the search bar, then click on `S3`
-<div style="text-align: center;">
-    <img src="ETLELT - Project.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./ETLELT - Project.png)
 
 After entering the `S3` service, click `Create Bucket`
-<div style="text-align: center;">
-    <img src="ETLELT - Project (1).png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./ETLELT - Project (1).png)
 
 Next we enter the `bucket name`
-<div style="text-align: center;">
-    <img src="ETLELT - Project (2).png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./ETLELT - Project (2).png)
 
 Enable `Bucket Versioning`
-<div style="text-align: center;">
-    <img src="ETLELT - Project (3).png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./ETLELT - Project (3).png)
 
 Finally, click `Create Bucket` to initialize the bucket
-<div style="text-align: center;">
-    <img src="ETLELT - Project (4).png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./ETLELT - Project (4).png)
 
 After completing the above operations, we will create a bucket in the region Singapore (ap-southeast-1)
-<div style="text-align: center;">
-    <img src="ETLELT - Project (5).png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./ETLELT - Project (5).png)
 
 #### 5.2.2. Upload Resources
 Click on the previously created bucket, then select `Create folder`
-<div style="text-align: center;">
-    <img src="ETLELT - Project (6).png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
-
-Click on the previously created bucket, then select `Create folder`
-<div style="text-align: center;">
-    <img src="ETLELT - Project (6).png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./ETLELT - Project (6).png)
 
 In the `Folder name` field, fill in `logs`, specify the encryption key for the folder, then click `Create folder`
-<div style="text-align: center;">
-    <img src="ETLELT - Project (7).png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./ETLELT - Project (7).png)
 {{< admonition note "Why do we need to create a logs folder?" >}}
 EMR Cluster needs a path to a location in S3 to perform logging for cluster activities such as tasks, nodes,...
 {{< /admonition >}}
 
 We do the same with the `input`, `output` and `scripts` folders
-<div style="text-align: center;">
-    <img src="ETLELT - Project (8).png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
-<div style="text-align: center;">
-    <img src="ETLELT - Project (9).png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
-<div style="text-align: center;">
-    <img src="ETLELT - Project (10).png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./ETLELT - Project (8).png)
+![image](./ETLELT - Project (9).png)
+![image](./ETLELT - Project (10).png)
 
 After completion, we have 4 folders as below
-<div style="text-align: center;">
-    <img src="ETLELT - Project (11).png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./ETLELT - Project (11).png)
 
 In the `input` folder, we upload input data for `EMR Cluster`, first click `upload`
-<div style="text-align: center;">
-    <img src="ETLELT - Project (12).png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./ETLELT - Project (12).png)
 
 then select `add files`
-<div style="text-align: center;">
-    <img src="ETLELT - Project (13).png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./ETLELT - Project (13).png)
 
 then select the data file downloaded from the link above
-<div style="text-align: center;">
-    <img src="ETLELT - Project (14).png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./ETLELT - Project (14).png)
 
 After confirming that we have added the correct data file, we select `upload`
-<div style="text-align: center;">
-    <img src="ETLELT - Project (15).png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./ETLELT - Project (15).png)
 
 We do the same with the `scripts` folder, this folder will contain code that helps `transform` and `calculate` according to the needs and purposes of data use.
-<div style="text-align: center;">
-    <img src="ETLELT - Project (16).png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./ETLELT - Project (17).png)
 
 In addition, the `output` folder is used to contain cluster output data
 
@@ -750,77 +711,50 @@ In addition, the `output` folder is used to contain cluster output data
 In the search bar, search for the keyword `VPC`, then click on `VPC service`.
 
 In the VPC console, click `Create VPC`.
-<div style="text-align: center;">
-    <img src="1.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./1.png)
 
 Choose `VPC and More`, enter a name for the VPC in the `Auto-generate` field, next fill in the `IPv4 CIDR block` with the value `10.10.0.0/16`
-<div style="text-align: center;">
-    <img src="2.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./2.png)
 
 Next we choose the `AZ` number as 1, the `Public Subnet` number as 1, the `Private Subnet` number as 0,Then we choose `S3 Gateway` so that the `Cluster` can `communicate` with `S3 Bucket` via the internal network
-<div style="text-align: center;">
-    <img src="3.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./3.png)
 
 Finally, click Create VPC
-<div style="text-align: center;">
-    <img src="4.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./4.png)
 
 Below are the `features` built with `VPC`
-<div style="text-align: center;">
-    <img src="5.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./5.png)
 
 ##### 5.2.3.1. Subnets
 We can see that the `VPC` was created with a `Public Subnet` in `AZ` `ap-southeast-1a` with an `IPv4 CIDR` of `10.10.0.0/20`
-<div style="text-align: center;">
-    <img src="7.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./6.png)
+![image](./7.png)
 
 Detailed parameters of `Public Subnet`
-<div style="text-align: center;">
-    <img src="8.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./8.png)
 
 ##### 5.2.3.2. Route Table
 We can see that in addition to the `default route`, we have a route with `Destination` of `0.0.0.0/0` and `Target` of `Internet Gateway ID`, allowing services located in the Public Subnet to go out to the Internet.
-<div style="text-align: center;">
-    <img src="9.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./9.png)
 
 `Public Subnet` and `Route Table` are `associated` with each other, helping to specify routes for the public subnet
-<div style="text-align: center;">
-    <img src="10.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./10.png)
 
 ##### 5.2.3.3. Internet Gateway
 The `Internet Gateway` is created and `attached` to the `VPC` we created above and `routed` in the `route table`
-<div style="text-align: center;">
-    <img src="11.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./11.png)
 
 ##### 5.2.3.4. VpcEnpoint
 We can see that a `VpcEndpoint` is created under the `VPC` we created above with the `S3` service and the `Endpoint Type` is of type `Gateway`, this helps the `EMR Cluster` to communicate with the `S3 Bucket` through the internal network.
-<div style="text-align: center;">
-    <img src="12.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./12.png)
 
 ##### 5.2.3.5. Security Group
 A `Security Group` is created belonging to the `VPC` we created above
-<div style="text-align: center;">
-    <img src="13.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./13.png)
 
 We can see that `Inbound rules` and `Outbound rules` allow `All traffic` to enter and exit
-<div style="text-align: center;">
-    <img src="14.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
-<div style="text-align: center;">
-    <img src="15.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./14.png)
+![image](./15.png)
 
 {{< admonition warning >}}
 `Inbound` and `Outbound` are configured with `All traffic` which is not a security issue, which we need to consider and handle.
@@ -828,24 +762,16 @@ We can see that `Inbound rules` and `Outbound rules` allow `All traffic` to ente
 
 #### 5.2.4. Create KeyPair
 In EC2 Console choose `Key pair`
-<div style="text-align: center;">
-    <img src="1q.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./1q.png)
 
 Next, click `Create Key pair`
-<div style="text-align: center;">
-    <img src="2q.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./2q.png)
 
 Enter the `Key pair name`, then click `Create Key pair`.
-<div style="text-align: center;">
-    <img src="3q.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./3q.png)
 
 We get a new `key pair`.
-<div style="text-align: center;">
-    <img src="4q.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./4q.png)
 
 #### 5.2.5. Create and Add Roles
 We will create `Roles` using `CLI`, first we need to `export environment variables`.
@@ -865,106 +791,65 @@ aws iam list-roles | grep 'EMR_DefaultRole\ | EMR_EC2_DefaultRole'
 
 We will check again in `Amazon IAM` to make sure the roles have been created.
 In IAM console, choose Roles
-<div style="text-align: center;">
-    <img src="1z.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./1z.png)
 
 We see that the necessary Roles have been created.
-<div style="text-align: center;">
-    <img src="2z.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./2z.png)
 
 
 #### 5.2.6. Create EMR Cluster
 On the search bar, search with the keyword `EMR`, then click `EMR service`
-<div style="text-align: center;">
-    <img src="long.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./long.png)
 
 In the `EMR` console, select `Create cluster`
-<div style="text-align: center;">
-    <img src="2s.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./2s.png)
 
 First we enter a name for the `cluster`, next we select the latest `EMR Release` (currently `emr-7.2.0`), then we select Application (`Spark`).
-<div style="text-align: center;">
-    <img src="3s.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./3s.png)
 
 We select `Amazon Linux release`, automatically applying the latest updated version.
-<div style="text-align: center;">
-    <img src="4s.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./4s.png)
 
 Choose `Instance Type` for `Master Node`
-<div style="text-align: center;">
-    <img src="5s.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./5s.png)
 
 Next we choose `Instance Type` for `Worker Node` including 1 `core` and 1 `task`
-<div style="text-align: center;">
-    <img src="6s.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./6s.png)
 
 Set the number of `cores` and `tasks`, here we leave 1 core and 1 task, then we choose `VPC` and `Subnet` for `EMR Cluster`.
-<div style="text-align: center;">
-    <img src="7s.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./7s.png)
 
 We select the `VPC` and `Subnet` that were previously created for the `cluster`.
-<div style="text-align: center;">
-    <img src="8s.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
-<div style="text-align: center;">
-    <img src="9s.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./8s.png)
+![image](./9s.png)
 
 We specify the path to the `logs` directory in the `s3 bucket` for the `cluster`.
-<div style="text-align: center;">
-    <img src="10s.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./10s.png)
 
 Choose the `keypair` for the `cluster` we created above
-<div style="text-align: center;">
-    <img src="11s.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./11s.png)
 
 Specify the `Service Role` and `EC2 Instance profile` that we created and added above
-<div style="text-align: center;">
-    <img src="12s.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
-<div style="text-align: center;">
-    <img src="13s.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./12s.png)
+![image](./13s.png)
 
 Confirm the information and click `Create Cluster`.
-<div style="text-align: center;">
-    <img src="14s.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./14s.png)
 
 At this point, the `Cluster` will be in `Starting` state, after a few minutes it will switch to `waiting` state (At this point it is ready to receive jobs and tasks)
-<div style="text-align: center;">
-    <img src="15s.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
-<div style="text-align: center;">
-    <img src="16s.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./15s.png)
+![image](./16s.png)
 
 ## 6. 👷 Submit Work to EMR Cluster
 When the `Cluster` is in the `Waiting` state, we will perform `Submit work` for the `EMR Cluster` by clicking on the `Steps` tab.
-<div style="text-align: center;">
-    <img src="ww.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./ww.png)
+
 
 Next we choose `Add step`.
-<div style="text-align: center;">
-    <img src="2w.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./2w.png)
 
 In the `Type` section, select `Spark application`, in the `Name` field, fill in the `step name`, and `Deploy mode`, select `Cluster mode`.
-<div style="text-align: center;">
-    <img src="3w.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./3w.png)
 
 In `Application location`, point to the folder containing the `PySpark script` containing the calculation and data conversion logic. In the `Arguments` section, fill in the following arguments:
 
@@ -975,31 +860,21 @@ In `Application location`, point to the folder containing the `PySpark script` c
 
 In `step action` we choose `continue`.
 Finally we click `Add step`.
-<div style="text-align: center;">
-    <img src="4w.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./4w.png)
 
 After creating the `step`, it will now have a `Pending` status. You can click `Refresh table` to update the step's status.
-<div style="text-align: center;">
-    <img src="5w.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./5w.png)
 
 After 20 to 25 seconds, the step has moved to the `Running` state, which means the `EMR Cluster` is performing tasks.
-<div style="text-align: center;">
-    <img src="6w.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./6w.png)
 
 After 50 seconds, the step has moved to the `Completed` state, which means the `EMR Cluster` has completed its assigned work.
-<div style="text-align: center;">
-    <img src="7w.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./7w.png)
 
 ## 7. 🔎 View Results
 ### 7.1. View Output
 After `EMR Cluster` completes its work, we can move to the `output` folder to see the output results.
-<div style="text-align: center;">
-    <img src="8w.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./8w.png)
 
 {{< admonition >}}
 The output data is divided into multiple files while the input is only 1 file. This is because Spark automatically splits the data to perform parallel calculations and processing, helping to increase performance when working with data. big material.
@@ -1007,70 +882,45 @@ The output data is divided into multiple files while the input is only 1 file. T
 
 ### 7.2. View Data
 To check if the data has actually been processed, you can download one of the files in the output folder, by checking the file you want to download and clicking download. After downloading you can view the data. This is before and after the data is processed.
-<div style="text-align: center;">
-    <img src="data-2.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
-<div style="text-align: center;">
-    <img src="data-1.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./data-2.png)
+![image](./data-1.png)
 
 ### 7.2. View Logs
 We have specified the `Logs` location for `EMR Cluster`, so it will perform Logs during data processing.
-<div style="text-align: center;">
-    <img src="9w.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./9w.png)
 
 ## 8. 🗑 Clean Up
 ### 8.1. Terminate EMR CLuster
 In the `EMR Console`, we select the cluster to terminate, then we click `Terminate`.
-<div style="text-align: center;">
-    <img src="10w.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
-<div style="text-align: center;">
-    <img src="11w.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./10w.png)
+![image](./11w.png)
 
 The cluster is now in `Terminating` state.
-<div style="text-align: center;">
-    <img src="12w.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./12w.png)
+
 
 The status changes to `Terminated`, meaning the cluster has successfully terminated.
-<div style="text-align: center;">
-    <img src="1t.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./1t.png)
 
 ### 8.2. Delete VPC
 Trong Tab `Your VPCs` ta chọn `VPC` cần xóa, sau đó chọn `Delete VPC`.
-<div style="text-align: center;">
-    <img src="2t.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./2t.png)
 
 We can see that when we delete a `VPC`, the `features` created with it will also be deleted, this helps clean up resources faster, features include `Internet Gateway`, `Route Table`, `Security Group`, `Subnet`, `VpcEnpoint`. Then we enter `delete` to confirm deleting the VPC, finally click `Delete`.
-<div style="text-align: center;">
-    <img src="3t.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./3t.png)
 
 ### 8.3. Delete S3 Bucket
 Select the `Bucket` you want to delete, then click `Empty` to delete the bucket's contents.
-<div style="text-align: center;">
-    <img src="4t.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./4t.png)
 
 Enter `permanently delete` to confirm deletion of the content, then click `Empty`.
-<div style="text-align: center;">
-    <img src="5t.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./5t.png)
 
 We re-select the `Bucket` that just deleted its contents and click `Delete`.
-<div style="text-align: center;">
-    <img src="6t.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./6t.png)
 
 Enter the `bucket name` to confirm deletion then click `Delete bucket`.
-<div style="text-align: center;">
-    <img src="7t.png" style="width: 1300px; height: auto;" alt="AWS Workshop Image">
-</div>
+![image](./7t.png)
 
 <!-- 
 
