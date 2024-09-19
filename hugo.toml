@@ -316,23 +316,10 @@ theme = "FeelIt"
         shortname = ""
       # Vssue comment config (https://github.com/meteorlxy/vssue)
       # Vssue 评论系统设置 (https://github.com/meteorlxy/vssue)
-      [params.page.comment.vssue]
-        enable = true
-        # Vssue platform API ("bitbucket", "gitea", "gitee", "github", "github-v4", "gitlab")
-        # Vssue 平台 API ("bitbucket", "gitea", "gitee", "github", "github-v4", "gitlab")
-        platform = "github"
-        owner = "khusika"
-        repo = "comments"
-        clientId = "85f66799bb256a5064be"
-        clientSecret = ""
+
       # Gitalk comment config (https://github.com/gitalk/gitalk)
       # Gitalk 评论系统设置 (https://github.com/gitalk/gitalk)
-      [params.page.comment.gitalk]
-        enable = false
-        owner = ""
-        repo = ""
-        clientId = ""
-        clientSecret = ""
+
       # Valine comment config (https://github.com/xCss/Valine)
       # Valine 评论系统设置 (https://github.com/xCss/Valine)
       [params.page.comment.valine]
