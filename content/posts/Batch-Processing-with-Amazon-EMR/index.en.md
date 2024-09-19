@@ -189,9 +189,10 @@ Therefore, designing, building and managing big data processing systems is extre
 
 ## 3. 🔦 Architecture
 
-<div style="text-align: center;">
+<!-- <div style="text-align: center;">
     <img src="./AWS-Architecture.drawio.png" style="width: 900px; height: auto;" alt="AWS Workshop Image">
-</div>
+</div> -->
+![Diagram](./AWS-Architecture.drawio.png "Diagram")
 
 - 📦 Technology and Services:
    - `S3` 
