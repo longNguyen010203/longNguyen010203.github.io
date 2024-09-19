@@ -192,7 +192,7 @@ Therefore, designing, building and managing big data processing systems is extre
 <!-- <div style="text-align: center;">
     <img src="./AWS-Architecture.drawio.png" style="width: 900px; height: auto;" alt="AWS Workshop Image">
 </div> -->
-![Diagram](./AWS-Architecture.drawio.png "Batch Processing with Amazon EMR - Diagram")
+![Diagram](./AWS-DE-Diagram.drawio.png "Batch Processing with Amazon EMR - Diagram")
 
 - 📦 Technology and Services:
    - `S3` 
