@@ -9,10 +9,6 @@ title = "AWS Data Engineer - Workshop"
 # Change the default theme to be use when building the site with Hugo
 theme = "FeelIt"
 
-[params]
-  # FeelIt theme version
-  version = "1.0.X"
-
 [menu]
   [[menu.main]]
     identifier = "categories"
