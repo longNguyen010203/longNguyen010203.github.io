@@ -5,7 +5,7 @@ date: 2024-09-22T15:58:26+08:00
 lastmod: 2024-09-22T15:58:26+08:00
 draft: false
 author: "Long Nguyễn"
-authorLink: "www.linkedin.com/in/long-nguyen-de203"
+authorLink: "https://www.facebook.com/profile.php?id=100013806768346"
 description: "Setup and build infrastructure for stream processing with Amazon Kinesis on Amazon Web Services (AWS)."
 resources:
 - name: "featured-image"
@@ -28,7 +28,7 @@ Find out how to create and organize your content quickly and intuitively in **Fe
 
 <!--more-->
 
-## 1 Contents Organization {#contents-organization}
+## 1. 🌍 Introduction
 
 A few suggestions to help you get a good looking site quickly:
 
@@ -58,7 +58,7 @@ will be supported in the future.
 It's really cool! :(fa-regular fa-grin-squint fa-fw):
 {{< /admonition >}}
 
-## 2 Front Matter {#front-matter}
+## 2. 📊 Present the problem
 
 **Hugo** allows you to add front matter in `yaml`, `toml` or `json` to your content files.
 
@@ -184,7 +184,8 @@ resources:
 ```
 {{< /admonition >}}
 
-## 3 Content Summaries
+## 3. 🔦 Architecture
+![Architecture](AWS-Stream.drawio.png "Stream Processing with Amazon Kinesis Diagram")
 
 **FeelIt** theme uses the summary of the content to display abstract information in the home page. Hugo can generate summaries of your content.
 
