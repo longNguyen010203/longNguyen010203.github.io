@@ -5,7 +5,7 @@ date: 2024-09-16T21:29:01+08:00
 lastmod: 2024-09-12T21:29:01+08:00
 draft: false
 author: "Long Nguyễn"
-authorLink: "www.linkedin.com/in/long-nguyen-de203"
+authorLink: "https://www.facebook.com/profile.php?id=100013806768346"
 description: "Setup and build infrastructure for batch processing with Amazon EMR on Amazon Web Services (AWS)."
 
 resources:
