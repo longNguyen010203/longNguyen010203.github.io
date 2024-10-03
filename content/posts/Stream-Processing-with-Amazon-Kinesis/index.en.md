@@ -83,5 +83,110 @@ Then in the `Terminal` window, move to the `root` directory of the source code, 
     <img src="./1.png" alt="Description" />
 </div>
 
+To create a `python virtual environment`, run the following command:
+```bash
+python3 -m venv .ws2-venv
+```
+{{< admonition >}}
+You can name the `virtual environment` any way you want.
+{{< /admonition >}}
+<div style="text-align: center;">
+    <img src="./2.png" alt="Description" />
+</div>
 
-### 4.3. 
+Next to `activate` the `virtual environment`, run the following command:
+```bash
+source .ws2-venv/bin/activate
+```
+{{< admonition >}}
+A sign that you have successfully activated the `virtual environment` is that the `virtual environment name` appears after the folder name.
+{{< /admonition >}}
+<div style="text-align: center;">
+    <img src="./3.png" alt="Description" />
+</div>
+
+
+### 4.3. Install libraries and dependencies
+The `requirements.txt` file in the `source code` contains the `libraries` and `dependencies` required for this `workshop`.
+To install we run the following command:
+```bash
+pip install -r requirements.txt
+```
+<div style="text-align: center;">
+    <img src="./4.png" alt="Description" />
+</div>
+
+To check if `libraries and dependencies` are installed, run the following command:
+```bash
+pip list
+```
+<div style="text-align: center;">
+    <img src="./5.png" alt="Description" />
+</div>
+<div style="text-align: center;">
+    <img src="./6.png" alt="Description" />
+</div>
+
+If your `terminal` window appears as above, you have successfully installed.
+
+## 5. 📡 Setup Infrastructure
+### 5.1. Create and Testing Kinesis Data Streams
+#### 5.1.1. Create Kinesis Data Streams
+In the search bar, enter the keyword `"kinesis"` and click to select the `kinesis service`.
+
+![image](./1a.png)
+
+In the `Kinesis service console`, select `Create Data Stream`.
+
+![image](./2a.png)
+
+In the `Data stream name` field, fill in `StockTradeStream`
+{{< admonition >}}
+You can give it any name you want.
+{{< /admonition >}}
+
+![image](./3a.png)
+
+In the `Data stream capacity` section, we fill in `1` in the `Provisioned shards` field.
+
+![image](./4a.png)
+
+Finally, we choose `Create data stream` to create `kinesis data streams`.
+
+![image](./5a.png)
+
+In the `StockTradesWriter.py` and `StockTradeReader.py` files, we need to check the following parameters: `streamName`, `region_name`, `aws_access_key_id`, `aws_secret_access_key`. Board
+
+![image](./6a.png)
+![image](./7a.png)
+
+You need to write down your correct `kinesis stream name`, write down the correct `region name` where you are using the service, and finally you need to fill in your `AccessKeys`, to make sure the stream works.
+
+#### 5.1.2. Demo and Test Kinesis Data Streams
+On your local machine, open two `terminal` windows, then navigate to the `root` directory (`stream-processing-with-amz-kinesis`) of the source code, then activate the `virtual environment` as instructed above. Then move the `Stock-Trade-Kinesis` folder to both windows with the following command:
+
+```bash
+cd Stock-Trade-Kinesis
+```
+![image](./terminal-1.png)
+
+The `first Terminal window` represents the `Producer` who is responsible for `sending data` to `Kinesis Data Streams`, the `second Terminal window` represents the `Consumer` who is responsible for `multiplying data` from `Kinesis Data Streams`. To launch, run the following commands on two `Terminal` window:
+
+```bash
+python3 -m writer.StockTradesWriter
+python3 -m processor.StockTradeReader
+```
+
+![image](./terminal-2.png)
+
+Then we press `Enter` on each window.
+
+<div style="max-width: 100%; text-align: center;">
+    <video width="100%" controls>
+        <source src="./producer_consumer_testing.webm" type="video/webm">
+    </video>
+</div>
+
+We can see data being sent and received in `real time`, the `producer` `sends` immediately the `commsumer` `receives` it. That is the main effect of `Kinesis Data Streams`.
+
+
