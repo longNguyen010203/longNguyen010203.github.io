@@ -56,169 +56,32 @@ Find out how to create and organize your content quickly and intuitively in **Fe
 
 ## 4. 📑 Preparation
 
-This part is shown in the [basic markdown syntax page](../basic-markdown-syntax/).
+### 4.1. Source Code
 
-## 5 Extended Markdown Syntax {#extended-markdown-syntax}
+See source code details here: [GitHub](https://github.com/longNguyen010203/Stream-Processing-with-Amazon-Kinesis)
 
-**FeelIt** theme has some extended syntax elements for you to write articles.
-
-### Emoji Support
-
-This part is shown in the [emoji support page](../emoji-support/).
-
-### Mathematical Formula
-
-**FeelIt** theme supports mathematical formulas based on [$ \KaTeX $](https://katex.org/).
-
-Set the property `enable = true` under `[params.math]` in your [site configuration](../theme-documentation-basics#site-configuration)
-and the property `math: true` of the article front matter to enable the automatic rendering of mathematical formulas.
-
-{{< admonition tip >}}
-Here is a list of [$ \TeX $ functions supported by $ \KaTeX $](https://katex.org/docs/supported.html).
-{{< /admonition >}}
-
-#### Block Formula
-
-The default block delimiters are `$$`/`$$` and `\\[`/`\\]`:
-
-```markdown
-$$ c = \pm\sqrt{a^2 + b^2} $$
-
-\\[ f(x)=\int_{-\infty}^{\infty} \hat{f}(\xi) e^{2 \pi i \xi x} d \xi \\]
+Download the source code to your local machine with the following command:
+```bash
+git clone https://github.com/longNguyen010203/Stream-Processing-with-Amazon-Kinesis.git
 ```
 
-The rendered output looks like this:
+- **model/StockTrade.py** - The file contains the `StockTrade` object definition class containing the following properties: `tickerSymbol`, `tradeType`, `price`, `quantity`, `id`. Methods: `toJsonAsBytes`, `fromJsonAsBytes`,...
+- **model/KinesisStream.py** - The file contains the class that defines the `KinesisStream` object with the properties: `kinesis_client`, `streamName` and methods: `put_record`, `get_records`,... to manipulate `Amazon Kinesis` through the [SDK for Python (Boto3)](https://docs.aws.amazon.com/code-library/latest/ug/python_3_kinesis_code_examples.html).
+- **writer/StockTradeGenerator.py** - The file contains the class that defines the `StockTradeGenerator` object, which is responsible for generating data from existing data. More specifically, creating stock transactions. It has a `getRandomTrade` method, which returns a `StockTrade` object, a stock trade.
+- **writer/StockTradesWriter.py** - The file contains the class that defines the `StockTradesWriter` object, this class defines the `sendStockTrade` method, which is responsible for sending data to `kinesis data streams`, acting as a `producer`.
+- **processor/StockTradeReader.py** - The file contains the class that defines the `StockTradeReader` object, which defines the `getStockTrade` method, which is responsible for reading data from `kinesis data streams`, acting as a `consumer`.
+- **processor/StockStatistic** - The file contains the class that defines the `StockStatistics` object, this class is responsible for statistics on collected transactions with the following statistics: `Most Popular Stock Count`,...
+- **lambda/StreamLambda.py** - The file contains data transformation logic.
 
-$$ c = \pm\sqrt{a^2 + b^2} $$
 
-\\[ f(x)=\int_{-\infty}^{\infty} \hat{f}(\xi) e^{2 \pi i \xi x} d \xi \\]
+### 4.2. Initialize python virtual environment
+Before creating the `virtual environment`, you need to install `Python`. If your computer does not have it, please visit [python.org](https://www.python.org/) to install it.
+Next you need to download the `source code` by following the instructions above.
+Then in the `Terminal` window, move to the `root` directory of the source code, specifically the `stream-processing-with-amz-kinesis` directory.
 
-#### Inline Formula
+<div style="text-align: center;">
+    <img src="./1.png" alt="Description" />
+</div>
 
-The default inline delimiters are `$`/`$` and `\\(`/`\\)`:
 
-```markdown
-$ c = \pm\sqrt{a^2 + b^2} $ and \\( f(x)=\int_{-\infty}^{\infty} \hat{f}(\xi) e^{2 \pi i \xi x} d \xi \\)
-```
-
-The rendered output looks like this:
-
-$ c = \pm\sqrt{a^2 + b^2} $ and \\( f(x)=\int_{-\infty}^{\infty} \hat{f}(\xi) e^{2 \pi i \xi x} d \xi \\)
-
-{{< admonition tip >}}
-You can add more block and inline delimiters in your [site configuration](../theme-documentation-basics#site-configuration).
-{{< /admonition >}}
-
-#### Copy-tex
-
-**[Copy-tex](https://github.com/Khan/KaTeX/tree/master/contrib/copy-tex)** is an extension for **$ \KaTeX $**.
-
-By the extension, when selecting and copying $ \KaTeX $ rendered elements, copies their $ \LaTeX $ source to the clipboard.
-
-Set the property `copyTex = true` under `[params.math]` in your [site configuration](../theme-documentation-basics#site-configuration) to enable Copy-tex.
-
-Select and copy the formula rendered in the previous section, and you can find that the copied content is the LaTeX source code.
-
-#### mhchem
-
-**[mhchem](https://github.com/Khan/KaTeX/tree/master/contrib/mhchem)** is an extension for **$ \KaTeX $**.
-
-By the extension, you can write beautiful chemical equations easily in the article.
-
-Set the property `mhchem = true` under `[params.math]` in your [site configuration](../theme-documentation-basics#site-configuration) to enable mhchem.
-
-```markdown
-$$ \ce{CO2 + C -> 2 CO} $$
-
-$$ \ce{Hg^2+ ->[I-] HgI2 ->[I-] [Hg^{II}I4]^2-} $$
-```
-
-The rendered output looks like this:
-
-$$ \ce{CO2 + C -> 2 CO} $$
-
-$$ \ce{Hg^2+ ->[I-] HgI2 ->[I-] [Hg^{II}I4]^2-} $$
-
-### Ruby Annotation {#ruby}
-
-An extended Markdown syntax for **ruby annotation** is supported in **FeelIt** theme:
-
-```markdown
-[Hugo]{?^}(An open-source static site generator)
-```
-
-The rendered output looks like this:
-
-[Hugo]^(An open-source static site generator)
-
-### Fraction {#fraction}
-
-{{< version 0.2.0 >}}
-
-An extended Markdown syntax for **fraction** is supported in **FeelIt** theme:
-
-```markdown
-[Light]{?/}[Dark]
-
-[99]{?/}[100]
-```
-
-The rendered output looks like this:
-
-[Light]/[Dark]
-
-[90]/[100]
-
-### Font Awesome {#fontawesome}
-
-**FeelIt** theme uses [Font Awesome](https://fontawesome.com/) as the icon library.
-You can easily use these icons in your articles.
-
-Get the `class` of icons you wanted from the [Font Awesome website](https://fontawesome.com/icons?d=gallery).
-
-```markdown
-Gone camping! {?:}(fa-solid fa-campground fa-fw): Be back soon.
-
-That is so funny! {?:}(fa-regular fa-grin-tears):
-```
-
-The rendered output looks like this:
-
-Gone camping! :(fa-solid fa-campground fa-fw): Be back soon.
-
-That is so funny! :(fa-regular fa-grin-tears):
-
-### Escape character {#escape-character}
-
-In some special cases (when writing this theme documentation :(fa-regular fa-grin-squint-tears):),
-your content will conflict with basic or extended Markdown syntax, and it is inevitable.
-
-The escape character syntax can help you build the content you wanted:
-
-```markdown
-{{??}X} -> X
-```
-
-For example, two `:` will enable emoji syntax, which is not the behavior you want. The escape character syntax is like this:
-
-```markdown
-{{??}:}joy:
-```
-
-The rendered output looks like this:
-
-**{?:}joy{?:}** instead of **:joy:**
-
-{{< admonition tip >}}
-This is related to **[an issue for Hugo](https://github.com/gohugoio/hugo/issues/4978)**, which has not been resolved.
-{{< /admonition >}}
-
-Another example is:
-
-```markdown
-[link{{??}]}(#escape-character)
-```
-
-The rendered output looks like this:
-
-**[link{?]}(#escape-character)** instead of **[link](#escape-character)**.
+### 4.3. 
