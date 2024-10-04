@@ -44,7 +44,7 @@ Find out how to create and organize your content quickly and intuitively in **Fe
 ## 3. 🔦 Architecture
 ![Architecture](stream_processing_architecture.drawio.png "Stream Processing with Amazon Kinesis Diagram")
 
-- 📦 Technology and Services:
+- 📦 **Technology and Services**:
   - `S3`
   - `Lambda`
   - `Kinesis Data Streams`
@@ -52,13 +52,15 @@ Find out how to create and organize your content quickly and intuitively in **Fe
   - `CloudFormation`
   - `CloudWatch`
   - `IAM`
+- 🔎 **Data Flow**: Stock data will be randomly generated using `Python` code acting as `producer`, then sent to `Kinesis Data Streams`, Next will be moved to `Firehose data stream`. Here the data will be `transformed` using `Lambda`, and will finally be `stored` in `S3`. Activities at `Amazon Kinesis Data Firehose` will be `monitored` by `Amazon CloudWatch`.
+
 
 
 ## 4. 📑 Preparation
 
 ### 4.1. Source Code
 
-See source code details here: [GitHub](https://github.com/longNguyen010203/Stream-Processing-with-Amazon-Kinesis)
+See source code details here: [GitHub - Stream processing with Amazon Kinesis](https://github.com/longNguyen010203/Stream-Processing-with-Amazon-Kinesis)
 
 Download the source code to your local machine with the following command:
 ```bash
@@ -189,4 +191,136 @@ Then we press `Enter` on each window.
 
 We can see data being sent and received in `real time`, the `producer` `sends` immediately the `commsumer` `receives` it. That is the main effect of `Kinesis Data Streams`.
 
+### 5.2. Create S3 Bucket
+In the `S3 dashboard`, select `Create bucket`.
 
+![image](./5s.png)
+
+In the `Bucket name` field, fill in `stock-trade-stream`. then click `Create bucket`.
+
+![image](./6s.png)
+![image](./7s.png)
+
+
+
+### 5.3. Create Lambda Function
+In the `Lambda console`, select `Create a function`
+
+![image](./1s.png)
+
+In the `Function name` field, enter `stock-stream-processor`. Then we choose `Python3.12` for the `Runtime type` field.
+{{< admonition >}}
+You can name the function as you like.
+{{< /admonition >}}
+
+![image](./2s.png)
+
+We choose `x86_64` for the `Architecture` field. Finally, we click `Create function`.
+
+![image](./3s.png)
+
+After creating the `Lambda Function`. In the `Code source` section, paste the `transform logic code` into the code editor, then click `deploy` to save the changes.
+
+![image](./4s.png)
+
+In the `Configuration` tab, select `Edit`.
+
+![image](./14s.png)
+
+In the `timeout` section, change it to `3 min` then select `save`.
+
+![image](./15s.png)
+
+
+### 5.4. Create Kinesis Data Firehose
+In the `Kinesis Data Firehose` console, select `Create Firehose Stream`.
+
+![image](./8s.png)
+
+In the `source` and `destination` sections, we select `Amazon Kinesis Data Streams` and `Amazon S3` respectively.
+
+![image](./9s.png)
+![image](./10s.png)
+
+In the `Kinesis data stream` section, we select the `Kinesis data stream` created above.
+
+![image](./11s.png)
+
+In the `Firehose stream name` field, we fill in `KDS-S3-StockStream` and in the `Transform source records with AWS Lambda` field we select `turn on data transform`.
+
+{{< admonition >}}
+You can fill in the name as you like, it is optional.
+{{< /admonition >}}
+
+![image](./12s.png)
+
+Then in `AWS Lambda Function`, we select the `lambda function` created above.
+
+![image](./13s.png)
+
+Next in `Destination Settings`, we select the `S3 bucket` that was created earlier. Then turn on `New line delimiter`. Finally click `Create Firehose data stream`.
+
+![image](./16s.png)
+![image](./17s.png)
+
+
+
+## 6. 👷 Run Stream Processing System
+Once the infrastructure is ready to go, in the `terminal` window on your local machine run the following command:
+
+```bash
+python3 -m writer.StockTradesWriter
+```
+<div style="text-align: center;">
+    <img src="./run.png" alt="Description" />
+</div>
+
+This command will launch the `producer` to start sending data to the `kinesis data streams` and the data will be transformed by the `lambda function` and finally stored in the `S3 bucket`.
+
+<div style="text-align: center;">
+    <img src="./22s.png" alt="Description" />
+</div>
+
+To send data from the `producer`, use the key combination `Ctrl + C`.
+
+
+## 7. 🔎 View Results
+### 7.1. View Logs
+In the `CloudWatch dashboard`, select `Logs group`.
+
+![image](./18s.png)
+
+Then choose `aws/lambda/stock-tream-processor`.
+
+![image](./19s.png)
+
+Continue selecting `Log stream`.
+
+![image](./20s.png)
+![image](./21s.png)
+
+As you can see the system is always logged.
+
+### 7.2. View Output
+We move to the `bucket` used as the `destination` of the `Firehose Stream` to harvest the results.
+
+![image](./1l.png)
+
+Then we continue to move through the folders `2024/`, `10/`, `03/`,... these folders represent the year, month and day that the result was created. Finally we will see the output file.
+
+![image](./2l.png)
+
+We download the file to see the results inside.
+
+![image](./3l.png)
+
+After downloading, we will open it to see the results.
+
+<div style="text-align: center;">
+    <img src="./5l.png" alt="Description" />
+</div>
+<div style="text-align: center;">
+    <img src="./4l.png" alt="Description" />
+</div>
+
+## 8. 🗑 Clean Up
