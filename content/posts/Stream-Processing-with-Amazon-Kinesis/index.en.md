@@ -31,13 +31,34 @@ Find out how to create and organize your content quickly and intuitively in **Fe
 ## 1. 🌍 Introduction
 
 ### 1.1. Amazon Lambda
+**Amazon Lambda (AWS Lambda)** is a serverless computing service provided by Amazon Web Services (AWS). It enables users to run code without provisioning or managing servers. With AWS Lambda, you can execute your code in response to specific events, such as changes in data, HTTP requests, or system events, while only paying for the actual computing time used. Lambda automatically scales to handle the workload, making it ideal for applications with unpredictable or variable traffic. It supports a variety of programming languages, including Python, Node.js, Java, and more, making it flexible for different types of applications.
+
+<div style="text-align: center;">
+    <img src="./Lambda.drawio.png" alt="Description" />
+</div>
 
 ### 1.2. Amazon CloudWatch
+**Amazon CloudWatch** is a monitoring and observability service provided by Amazon Web Services (AWS). It allows users to collect, monitor, and analyze metrics, logs, and event data from AWS resources, applications, and services in real-time. With CloudWatch, users can set up alarms to trigger notifications or automatic actions based on specified thresholds, helping to maintain the health and performance of applications. It also offers dashboards for visualizing metrics and logs, making it easier to track system health and troubleshoot issues. CloudWatch supports a wide range of AWS services, enhancing overall cloud infrastructure management and optimization.
+
+<div style="text-align: center;">
+    <img src="./CLW.drawio.png" alt="Description" />
+</div>
 
 ### 1.3. Amazon Kinesis Data Streams
+**Amazon Kinesis Data Streams** is a fully managed, serverless streaming data service provided by Amazon Web Services (AWS). It enables you to capture, process, and store real-time data streams at any scale. With Kinesis Data Streams, you can collect data from various sources such as application logs, clickstreams, and IoT devices, and process it within seconds to support real-time analytics and decision-making. The service offers automatic scaling to handle varying data volumes and integrates seamlessly with other AWS services, facilitating the development of comprehensive streaming data applications.
+
+**Amazon Kinesis Data Streams** is a scalable and durable real-time data streaming service provided by AWS. It allows users to continuously capture, process, and store gigabytes of data per second from various sources such as application logs, social media feeds, IoT devices, and financial transactions. Kinesis Data Streams provides real-time data ingestion, enabling users to build custom applications that process or analyze the data in real-time. It offers flexibility with fine-tuned data retention and scaling options, and integrates with other AWS services like Lambda, S3, and Kinesis Data Analytics for advanced stream processing. This service is ideal for scenarios like real-time monitoring, log and event data processing, and analytics at scale.
+
+<div style="text-align: center;">
+    <img src="./KDS.drawio.png" alt="Description" />
+</div>
 
 ### 1.4. Amazon Kinesis Data Firehose
+**Amazon Kinesis Data Firehose** is a fully managed service under AWS Kinesis that makes it easy to load real-time streaming data into data lakes, data warehouses, and analytics services. It automatically captures, transforms, and delivers streaming data to destinations such as Amazon S3, Amazon Redshift, Amazon Elasticsearch Service, and third-party services like Splunk. Kinesis Firehose handles the scaling and delivery of the data streams without requiring users to manage any infrastructure. It also supports data transformation with AWS Lambda before delivery and allows for configurable buffering, making it an ideal solution for near real-time data ingestion and analysis.
 
+<div style="text-align: center;">
+    <img src="./KDF.drawio.png" alt="Description" />
+</div>
 
 ## 2. 📊 Present the problem
 
@@ -324,3 +345,55 @@ After downloading, we will open it to see the results.
 </div>
 
 ## 8. 🗑 Clean Up
+### 8.1. Delete Lambda Function
+In the `Amazon Lambda` console, navigate to `Functions`, then select the previously used `function` and click `Delete`.
+
+![image](./7q.png)
+
+Enter `delete` to confirm deletion and then click `Delete`.
+
+![image](./8q.png)
+
+### 8.2. Delete Kinesis Data Firehose
+In the `Amazon Data Firehose` console, select the `Firehose streams` you created and click `delete`.
+
+![image](./1q.png)
+
+Enter `Firehose stream name` to confirm deletion, then click `Delete`.
+
+![image](./2q.png)
+
+### 8.3. Delete Kinesis Data Streams
+In the `Amazon kinesis streams` console, select the created `Data streams` and click `Delete`.
+
+![image](./5q.png)
+
+Enter `delete` to confirm deletion and then click `Delete`.
+
+![image](./6q.png)
+
+### 8.4. Delete S3 Bucket
+In the `Amazon Lambda` console, we navigate to `Buckets`, then select the previously used `bucket`. Click `Empty` to delete the `content` inside the `bucket`.
+
+![image](./9q.png)
+
+Then enter `permanently delete` to confirm deletion, then click `Empty` again to `delete` the `content`.
+
+![image](./10q.png)
+
+Continue to select that `bucket` and press `Delete`.
+
+![image](./11q.png)
+
+Enter the `bucket name` to confirm deletion, then select `Delete bucket` to delete.
+
+![image](./12q.png)
+
+### 8.5. Delete Log groups
+In the `Amazon CloudWatch` console, navigate to `Log groups`, then select all `Log group`. Next click `Delete log group(s)`.
+
+![image](./3q.png)
+
+Finally click `Delete`.
+
+![image](./4q.png)
