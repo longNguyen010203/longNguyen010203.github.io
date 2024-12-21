@@ -17,143 +17,8 @@ ignoreErrors = ["err-missing-comment-accesstoken", "err-missing-oembed-accesstok
 
 
 [languages]
-  [languages.vi]
-    weight = 1
-    # language code
-    languageCode = "vi"
-    # language name
-    languageName = "Tiếng Việt"
-    # whether to include Chinese/Japanese/Korean
-    hasCJKLanguage = false
-    # default amount of posts in each pages
-    paginate = 12
-    # copyright description used only for seo schema
-    copyright = "Tác phẩm này được cấp phép theo Giấy phép Creative Commons Attribution-NonCommercial 4.0 International."
-    # Menu config
-    [languages.vi.menu]
-      [[languages.vi.menu.main]]
-        identifier = "posts"
-        pre = ""
-        post = ""
-        name = "Bài viết"
-        url = "/vi/posts/"
-        title = ""
-        weight = 1
-      [[languages.vi.menu.main]]
-        identifier = "tags"
-        pre = ""
-        post = ""
-        name = "Thẻ"
-        url = "/vi/tags/"
-        title = ""
-        weight = 2
-      [[languages.vi.menu.main]]
-        identifier = "categories"
-        pre = ""
-        post = ""
-        name = "Danh mục"
-        url = "/vi/categories/"
-        title = ""
-        weight = 3
-      [[languages.vi.menu.main]]
-        identifier = "documentation"
-        pre = ""
-        post = ""
-        name = "Tài liệu"
-        url = "/vi/categories/documentation/"
-        title = ""
-        weight = 4
-      [[languages.vi.menu.main]]
-        identifier = "about"
-        pre = ""
-        post = ""
-        name = "Giới thiệu"
-        url = "/vi/about/"
-        title = ""
-        weight = 5
-      [[languages.vi.menu.main]]
-        identifier = "github"
-        pre = "<i class='fa-brands fa-github fa-fw'></i>"
-        post = ""
-        name = ""
-        url = "https://github.com/khusika/FeelI"
-        title = "GitHub"
-        weight = 6
-    [languages.vi.params]
-      # site description
-      description = "Thông tin về giao diện FeelIt"
-      # site keywords
-      keywords = ["Giao diện", "Hugo"]
-      # App icon config
-      [languages.vi.params.app]
-        title = "FeelIt"
-        noFavicon = false
-        svgFavicon = ""
-        themeColor = "#ffffff"
-        iconColor = "#5bbad5"
-        tileColor = "#da532c"
-      # Search config
-      [languages.vi.params.search]
-        enable = true
-        type = "algolia"
-        contentLength = 4000
-        placeholder = ""
-        maxResultLength = 10
-        snippetLength = 30
-        highlightTag = "em"
-        absoluteURL = false
-        [languages.vi.params.search.algolia]
-          index = "index.vi"
-          appID = "UAL0NNJWXE"
-          searchKey = "7b7fbdfb7ee82ee61901f2c6b09b05be"
-
-      # About page config
-      [languages.vi.params.about]
-        enable = true
-        param = true
-        paramTitle = "Thông tin cá nhân"
-        description = "[FeelIt](https://github.com/khusika/FeelIt) là một giao diện blog **sạch sẽ**, **thanh lịch** nhưng **tiên tiến** cho [Hugo](https://gohugo.io/) được phát triển bởi [Khusika](https://khusika.dev)."
-        [[languages.vi.params.about.status]]
-          faIcon = "fa-solid fa-building"
-          title = "Công ty"
-          desc = "FeelIt"
-        [[languages.vi.params.about.status]]
-          faIcon = "fa-solid fa-briefcase fa-fw"
-          title = "Nghề nghiệp"
-          desc = "Freelancer"
-        [[languages.vi.params.about.status]]
-          title = "Địa điểm"
-          faIcon = "fa-solid fa-map-marker-alt"
-          desc = "Trái Đất"
-        [[languages.vi.params.about.parameter]]
-          language = "UI/UX"
-          level = "80"
-        [[languages.vi.params.about.parameter]]
-          language = "HTML"
-          level = "70"
-        [[languages.vi.params.about.parameter]]
-          language = "Go"
-          level = "60"
-
-      # Home page config
-      [languages.vi.params.home]
-        rss = 10
-        [languages.vi.params.home.profile]
-          enable = true
-          gravatarEmail = ""
-          avatarURL = "/images/avatar.webp"
-          title = ""
-          subtitle = "Một giao diện Hugo sạch sẽ, thanh lịch nhưng tiên tiến"
-          typeit = true
-          social = true
-          disclaimer = ""
-        [languages.vi.params.home.posts]
-          enable = true
-          paginate = 6
-          imagePreview = true
-
   [languages.en]
-    weight = 2
+    weight = 1
     # language code
     languageCode = "en"
     # language name
@@ -324,7 +189,7 @@ ignoreErrors = ["err-missing-comment-accesstoken", "err-missing-oembed-accesstok
           imagePreview = true
 
   [languages.zh-cn]
-    weight = 3
+    weight = 2
     # 网站语言, 仅在这里 CN 大写
     languageCode = "zh-CN"
     # 语言名称
@@ -493,7 +358,7 @@ ignoreErrors = ["err-missing-comment-accesstoken", "err-missing-oembed-accesstok
           imagePreview = true
 
   [languages.fr]
-    weight = 4
+    weight = 3
     # language code
     languageCode = "fr"
     # language name
