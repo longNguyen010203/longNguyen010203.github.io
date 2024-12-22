@@ -1,5 +1,5 @@
 ---
-weight: 1
+weight: 4
 title: "Workshop - 1: 👷 Batch Processing with Amazon EMR 📦"
 date: 2024-09-16T21:29:01+08:00
 lastmod: 2024-09-12T21:29:01+08:00
@@ -12,7 +12,7 @@ resources:
 - name: "featured-image"
   src: "aws-cloud-img.jpg"
 - name: "featured-image-preview"
-  src: "featured-image-preview.webp"
+  src: "aws-cloud-img.jpg"
 tags: ["installation", "configuration"]
 # categories: ["documentation"]
 categories: ["AWS - Workshop"]

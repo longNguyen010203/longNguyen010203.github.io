@@ -1,5 +1,5 @@
 ---
-weight: 2
+weight: 5
 title: "Workshop - 2: 👷 Stream Processing with Amazon Kinesis 🌊"
 date: 2024-09-22T15:58:26+08:00
 lastmod: 2024-09-22T15:58:26+08:00
@@ -14,7 +14,8 @@ resources:
   src: "featured-image-preview.webp"
 
 tags: ["content", "Markdown"]
-categories: ["documentation"]
+# categories: ["documentation"]
+categories: ["AWS - Workshop"]
 
 lightgallery: true
 
