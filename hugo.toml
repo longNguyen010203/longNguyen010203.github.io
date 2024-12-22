@@ -799,24 +799,24 @@ ignoreErrors = ["err-missing-comment-accesstoken", "err-missing-oembed-accesstok
     # 文章页面的分享信息设置
     [params.page.share]
       enable = true
-      Twitter = false
+      Twitter = true
       Facebook = true
-      Linkedin = true
+      Linkedin = false
       Whatsapp = false
       Pinterest = false
       Tumblr = false
-      HackerNews = false
+      HackerNews = true
       Reddit = false
       VK = false
       Buffer = false
       Xing = false
-      Line = false
+      Line = true
       Instapaper = false
       Pocket = false
       Digg = false
       Stumbleupon = false
       Flipboard = false
-      Weibo = false
+      Weibo = true
       Renren = false
       Myspace = false
       Blogger = false
@@ -931,15 +931,15 @@ ignoreErrors = ["err-missing-comment-accesstoken", "err-missing-oembed-accesstok
   # Social config in home page
   # 主页的社交信息设置
   [params.social]
-    GitHub = "xxxx"
-    Linkedin = ""
-    Twitter = "xxxx"
-    Instagram = "xxxx"
-    Facebook = "xxxx"
-    Telegram = "xxxx"
+    GitHub = "longNguyen010203"
+    Linkedin = "long-nguyen-de203"
+    Twitter = ""
+    Instagram = ""
+    Facebook = "profile.php?id=100013806768346"
+    Telegram = ""
     Medium = ""
     Gitlab = ""
-    Youtubelegacy = "xxxx"
+    Youtubelegacy = ""
     Youtubecustom = ""
     Youtubechannel = ""
     Tumblr = ""
@@ -992,15 +992,12 @@ ignoreErrors = ["err-missing-comment-accesstoken", "err-missing-oembed-accesstok
     XMPP = ""
     Matrix = ""
     Bilibili = ""
-    Email = "xxxx@xxxx.com"
+    Email = "longde.work@gmail.com"
     Resume = "" #goo.gl id
     xda = ""
     kaggle = ""
     discord = ""
-    RSS = true
-    [params.social.Mastodon]
-      id = "@xxxx"
-      prefix = "https://mastodon.technology/"
+    RSS = false
 
   # TypeIt config
   # TypeIt 配置
