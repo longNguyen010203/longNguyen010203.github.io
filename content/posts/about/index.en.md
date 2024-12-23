@@ -1,5 +1,5 @@
 ---
-title: "About FeelIt"
+title: "About me"
 date: 2019-08-02T11:04:49+08:00
 draft: false
 
@@ -18,6 +18,27 @@ math:
 {{< /style >}}
 
 ![Hugo Theme FeelIt](/images/Apple-Devices-Preview.webp "Hugo Theme FeelIt")
+
+
+### 1. EDUCATION
+
+- **Thang Long University**
+- Bachelor of Science in Artificial Intelligence, XYZ University (2019 - 2023)
+  - Relevant coursework: Data Engineering, Machine Learning, Cloud Computing
+  - Achievements: Graduated with Distinction (GPA: 3.9/4.0)
+
+
+
+### 2. SKILLS
+
+
+
+
+
+
+
+
+
 
 ### Features
 

@@ -41,7 +41,7 @@ ignoreErrors = ["err-missing-comment-accesstoken", "err-missing-oembed-accesstok
         url = "/posts/"
         # title will be shown when you hover on this menu link.
         title = ""
-        weight = 1
+        weight = 2
       [[languages.en.menu.main]]
         identifier = "tags"
         pre = ""
@@ -49,7 +49,7 @@ ignoreErrors = ["err-missing-comment-accesstoken", "err-missing-oembed-accesstok
         name = "Tags"
         url = "/tags/"
         title = ""
-        weight = 2
+        weight = 3
       [[languages.en.menu.main]]
         identifier = "categories"
         pre = ""
@@ -57,15 +57,15 @@ ignoreErrors = ["err-missing-comment-accesstoken", "err-missing-oembed-accesstok
         name = "Categories"
         url = "/categories/"
         title = ""
-        weight = 3
+        weight = 4
       [[languages.en.menu.main]]
-        identifier = "documentation"
+        identifier = "certificates"
         pre = ""
         post = ""
-        name = "Docs"
-        url = "/categories/documentation/"
+        name = "Certificates"
+        url = "/categories/certificates/"
         title = ""
-        weight = 4
+        weight = 5
       [[languages.en.menu.main]]
         identifier = "resume"
         pre = ""
@@ -73,7 +73,7 @@ ignoreErrors = ["err-missing-comment-accesstoken", "err-missing-oembed-accesstok
         name = "Resume 📎"
         url = "https://drive.google.com/file/d/13SNjy-ME_JvD2rM5g4FjpIEYEY6WoEpp/view?usp=sharing"
         title = ""
-        weight = 4
+        weight = 6
       [[languages.en.menu.main]]
         identifier = "about"
         pre = ""
@@ -81,7 +81,7 @@ ignoreErrors = ["err-missing-comment-accesstoken", "err-missing-oembed-accesstok
         name = "About"
         url = "/about/"
         title = ""
-        weight = 5
+        weight = 1
       [[languages.en.menu.main]]
         identifier = "github"
         pre = "<i class='fa-brands fa-github fa-fw'></i>"
@@ -89,7 +89,7 @@ ignoreErrors = ["err-missing-comment-accesstoken", "err-missing-oembed-accesstok
         name = ""
         url = "https://github.com/longNguyen010203"
         title = "GitHub"
-        weight = 6
+        weight = 7
     [languages.en.params]
       # site description
       description = "About FeelIt Theme"
@@ -179,9 +179,9 @@ ignoreErrors = ["err-missing-comment-accesstoken", "err-missing-oembed-accesstok
           # URL of avatar shown in home page
           avatarURL = "/images/avatar.webp"
           # title shown in home page (HTML format is supported)
-          title = ""
+          title = "Nguyen Thanh Long"
           # subtitle shown in home page (HTML format is supported)
-          subtitle = "Turning Data Pipelines into Business Power."
+          subtitle = "Các Projects, Workshop cá nhân về Data Engineering, NLP, Computer Vision mà mình tự build. Cùng khám phá ở dưới nhé!"
           # whether to use typeit animation for subtitle
           typeit = true
           # whether to show social links
@@ -651,13 +651,13 @@ ignoreErrors = ["err-missing-comment-accesstoken", "err-missing-oembed-accesstok
     author = true
     # site creation time
     # 网站创立年份
-    since = 2019
+    since = 2022
     # ICP info only in China (HTML format is supported)
     # ICP 备案信息，仅在中国使用 (支持 HTML 格式)
     icp = ""
     # license info (HTML format is supported)
     # 许可协议信息 (支持 HTML 格式)
-    license= '<a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
+    # license= '<a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank"></a>'
 
   # Section (all posts) page config
   # Section (所有文章) 页面配置
