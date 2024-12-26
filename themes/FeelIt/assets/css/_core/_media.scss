@@ -6,11 +6,11 @@
 
 @media only screen and (max-width: 7680px) {
   .page {
-    width: 80%;
+    width: 70%;
   }
 
   .single {
-    width: 70%;
+    width: 45%;
   }
 
   .archive {
@@ -23,7 +23,24 @@
 
   .home[data-home=posts] {
     .summary{
-      min-height: 30.5rem;
+      width: calc(33.33% - 10px); /* Trừ đi khoảng cách giữa các item */
+      margin-right: 10px; /* Thêm khoảng cách ngang giữa các item */
+      float: left; /* Sắp xếp các mục theo hàng ngang */
+      min-height: 25rem; /* Đảm bảo chiều cao phù hợp */
+      border: 1px solid #ccc; /* Thêm đường viền màu xám nhạt */
+      box-sizing: border-box; 
+      border-radius: 10px;
+      // min-height: 30.5rem;
+
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* X, Y, Blur, Spread, Color */
+      transition: box-shadow 0.3s ease; /* Hiệu ứng mượt khi thay đổi đổ bóng */
+
+      // font-size: 1.1rem; /* Điều chỉnh giá trị tùy ý */
+      // line-height: 1.6; /* Tăng khoảng cách giữa các dòng */
+    }
+
+    .summary:hover {
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Tăng đổ bóng khi hover */
     }
   }
 }
@@ -85,7 +102,15 @@
 
   .home[data-home=posts] {
     .summary{
-      min-height: 22rem;
+      width: calc(33.33% - 10px);
+      margin-right: 10px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      // min-height: 22rem;
+    }
+
+    .summary:nth-child(3n) {
+      margin-right: 0;
     }
   }
 
@@ -97,8 +122,12 @@
 @media only screen and (max-width: 960px) {
   .home[data-home=posts] {
     .summary{
-      width: 100%;
-      min-height: 0;
+      width: 50%; /* 2 item 1 hàng trên màn hình nhỏ hơn */
+      margin: 0;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      // width: 100%;
+      // min-height: 0;
     }
   }
 
@@ -136,6 +165,10 @@
       .post-footer {
         margin: .4rem .5rem 0 .5rem;
       }
+      width: 100%; /* 1 item 1 hàng trên màn hình rất nhỏ */
+      margin: 0;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
     }
   }
 

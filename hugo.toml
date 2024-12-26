@@ -181,7 +181,7 @@ ignoreErrors = ["err-missing-comment-accesstoken", "err-missing-oembed-accesstok
           # title shown in home page (HTML format is supported)
           title = "Nguyen Thanh Long"
           # subtitle shown in home page (HTML format is supported)
-          subtitle = "Các Projects, Workshop cá nhân về Data Engineering, NLP, Computer Vision mà mình tự build. Cùng khám phá ở dưới nhé!"
+          subtitle = "Các Projects, Workshop cá nhân về Data Engineering, NLP, Computer Vision, AWS mà mình tự build. Cùng khám phá ở dưới nhé!"
           # whether to use typeit animation for subtitle
           typeit = true
           # whether to show social links
