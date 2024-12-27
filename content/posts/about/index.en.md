@@ -9,7 +9,7 @@ math:
   enable: true
 ---
 
-{{< style "img { height: 1.25rem; }" >}}
+<!-- {{< style "img { height: 1.25rem; }" >}}
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/khusika/FeelIt?style=flat-square)](https://github.com/khusika/FeelIt/releases)
 [![Hugo](https://img.shields.io/badge/Hugo-%5E0.110.0-ff4088?style=flat-square&logo=hugo)](https://gohugo.io/)
 [![License](https://img.shields.io/github/license/khusika/FeelIt?style=flat-square)](https://github.com/khusika/FeelIt/blob/main/LICENSE)
@@ -17,7 +17,12 @@ math:
 [![GitHub forks](https://img.shields.io/github/forks/khusika/FeelIt?style=social)](https://github.com/khusika/FeelIt/fork)
 {{< /style >}}
 
-![Hugo Theme FeelIt](/images/Apple-Devices-Preview.webp "Hugo Theme FeelIt")
+![Hugo Theme FeelIt](/images/Apple-Devices-Preview.webp "Hugo Theme FeelIt") -->
+
+<div style="display: flex; align-items: center; background-color: #ff4d4d; padding: 10px 15px; border-radius: 5px; color: white; font-family: Arial, sans-serif;">
+  <div style="width: 12px; height: 12px; background-color: #001f3f; border-radius: 50%; margin-right: 10px;"></div>
+  <span style="font-weight: bold;">Đang cập nhật</span>
+</div>
 
 
 ### 1. EDUCATION
@@ -40,7 +45,7 @@ math:
 
 
 
-### Features
+<!-- ### Features
 
 #### Performance and SEO
 
@@ -132,4 +137,4 @@ Thanks to the authors of following resources included in the theme:
 * [Gitalk](https://github.com/gitalk/gitalk)
 * [Valine](https://valine.js.org/)
 * [Vssue](https://vssue.js.org/)
-* [cookieconsent](https://github.com/osano/cookieconsent)
+* [cookieconsent](https://github.com/osano/cookieconsent) -->
