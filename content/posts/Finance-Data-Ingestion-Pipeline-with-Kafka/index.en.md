@@ -30,7 +30,7 @@ Mã nguồn dự án được công khai trên GitHub tại: **[GitHub Repositor
 <div style="margin-top: 30px;"></div>
 
 <div style="display: flex; align-items: center; background-color: #ff4d4d; padding: 10px 15px; border-radius: 5px; color: white; font-family: Arial, sans-serif;">
-  <div style="width: 12px; height: 12px; background-color: #001f3f; border-radius: 50%; margin-right: 10px;"></div>
+  <!-- <div style="width: 12px; height: 12px; background-color: #001f3f; border-radius: 50%; margin-right: 10px;"></div> -->
   <span style="font-weight: bold;">📊 Demo report</span>
 </div>
 
