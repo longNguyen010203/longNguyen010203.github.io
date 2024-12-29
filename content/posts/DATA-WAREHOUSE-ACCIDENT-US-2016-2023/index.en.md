@@ -97,10 +97,10 @@ Dữ liệu bao gồm các biến về:
 <div style="margin-top: 30px;"></div>
 <img src="./code-1.png">
 
-### 4.1. Extract: 
+### 4.1. Extract
 Tích hợp `Airflow` với `Spark` và cấu hình nó trong `pyspark decorator` để giúp spark tương tác với MinIO trong các quy trình đọc/ghi dữ liệu. Đọc các file dữ liệu từ data source (`bronze layer`) trong MinIO thông qua đường dẫn `s3a://lakehouse/bronze/File_Name.csv`.
 
-### 4.2. Transform: 
+### 4.2. Transform
 Thực hiện transform dữ liệu với `pyspark`. Đối với dataset:
  - US_Accidents_March23.csv: 
    - Xóa các giá trị khuyết thiếu của cột Street, City, Zipcode, Timezone, Airport_Code,...
@@ -118,7 +118,7 @@ Xem chi tiết về quá trình xử lý và làm sạch dữ liệu tại **[Gi
 
 Sau khi xử lý và làm sạch dữ liệu, ta thực hiên repartition cho dataframe với một số lượng nhất định để giảm tải cho bộ nhớ sau đó ghi dữ liệu vào silver layer của MinIO thông qua đường dẫn `s3a://lakehouse/silver/File_Name.parquet`, sử dụng định dạng parquet để tối ưu hóa khả năng compress và storage dữ liệu.
 
-### 4.3. Load: 
+### 4.3. Load
 Tạo Staging schema trong kho dữ liệu Snowflake.
   
 <img src="./code-load.png">
@@ -302,16 +302,16 @@ Xem chi tiết các tests cho dữ liệu tại **[GitHub Repository](https://gi
 
 <img src="./infra-1.png">
 
-Để setup môi trường và cơ sở hạ tầng, ta sử dụng `docker` để khởi tạo các containers bao gồm:
+Để setup môi trường và cơ sở hạ tầng, ta sử dụng docker để khởi tạo các containers bao gồm:
 
-- **MinIO**: Được sử dụng làm `datalake`, chứa dữ liệu được xử lý theo từng cấp độ.
+- **MinIO**: Được sử dụng làm datalake, chứa dữ liệu được xử lý theo từng cấp độ.
   
-  - `minio` container: đối tượng lưu trữ tương tự như `Amazon S3`.
+  - `minio` container: đối tượng lưu trữ tương tự như Amazon S3.
 
     - 9000:9000
     - 9001:9001
   - `mc` container: công cụ CLI để quản lý và tương tác với MinIO server
-- **Airflow**: được sử dụng để tích hợp với các cộng như `pyspark`, `snowflake`, `s3` để thực hiện các task ETL và lên lịch.
+- **Airflow**: được sử dụng để tích hợp với các công cụ như pyspark, snowflake, s3 để thực hiện các task ETL và lên lịch.
 
   - `postgres-1` container: lưu trữ metadata cho Airfow
   - `airflow-init-1` container: khởi tạo (initialize) cơ sở dữ liệu và cấu hình cho Airflow. Sau khi hoàn tất, nó sẽ dừng lại.
@@ -320,7 +320,7 @@ Xem chi tiết các tests cho dữ liệu tại **[GitHub Repository](https://gi
 
     - 8080:8080
   - `airflow-scheduler-1` container: quản lý lịch trình thực thi các DAG. Nó thường đọc DAG từ cơ sở dữ liệu và kích hoạt các task dựa trên lịch trình.
-- **Spark**: `Spark` được cấu hình ở chế độ `standalone` với 2 `worker` node, nhiệm vụ xử lý và làm sạch lượng dữ liệu lớn của project
+- **Spark**: Spark được cấu hình ở chế độ standalone với 2 worker node(mỗi worker node được chia 1 CPU và 2GB Ram), nhiệm vụ xử lý và làm sạch lượng dữ liệu lớn của project
 
   - `spark-master` container: node điều phối chính trong cluster Apache Spark. Nó quản lý tài nguyên và phân phối các task tới các worker node.
 
