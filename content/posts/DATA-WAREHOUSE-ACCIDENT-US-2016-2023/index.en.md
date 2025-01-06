@@ -32,7 +32,7 @@ Mã nguồn dự án được công khai trên GitHub tại: **[GitHub Repositor
 
 <div style="display: flex; align-items: center; background-color: #ff4d4d; padding: 10px 15px; border-radius: 5px; color: white; font-family: Arial, sans-serif;">
   <!-- <div style="width: 12px; height: 12px; background-color: #001f3f; border-radius: 50%; margin-right: 10px;"></div> -->
-  <span style="font-weight: bold;">📊 Demo report</span>
+  <span style="font-weight: bold;">📊 Demo Report</span>
 </div>
 
 <div style="margin-top: 20px;"></div>

@@ -25,15 +25,30 @@ toc:
   auto: false
 ---
 
-Trong project này, mình xây dựng một `Data Pipeline` đơn giản theo kiến trúc `Lambda`, sử dụng mô hình `ETL(extract - Transform - Load)` và bộ dữ liệu `Youtube-Trending-Video`. Thực hiện `Ingestion`, `Processing`, `Transformation` và `Compute` dữ liệu bằng công nghệ dữ liệu lớn `Apache Spark`, phục vụ hệ thống `Recommendation Video` cho bản thân.
+Trong project này, mình xây dựng một Data Pipeline đơn giản theo kiến trúc Lambda, sử dụng mô hình ETL(extract - Transform - Load) và bộ dữ liệu Youtube-Trending-Video. Thực hiện Ingestion, Processing, Transformation và Compute dữ liệu bằng công nghệ dữ liệu lớn Apache Spark, phục vụ hệ thống Recommendation Video cho bản thân.
 
-Project này được xây dựng dựa trên các kiến thức được học trên trường, cộng với các kiến thức mà bản thân mình tự tìm tòi và học hỏi từ nhiều nguồn khác nhau.
-
-
-## 1. Project Overview
+Mã nguồn dự án được công khai trên GitHub tại: **[GitHub Repository](https://github.com/longNguyen010203/Youtube-Recommend-Master-ETL-Pipeline)**
+<div style="margin-top: 30px;"></div>
 
 <div style="display: flex; align-items: center; background-color: #ff4d4d; padding: 10px 15px; border-radius: 5px; color: white; font-family: Arial, sans-serif;">
-  <div style="width: 12px; height: 12px; background-color: #001f3f; border-radius: 50%; margin-right: 10px;"></div>
-  <span style="font-weight: bold;">Đang cập nhật</span>
+  <span style="font-weight: bold;">📹 Demo Video</span>
 </div>
 
+<div style="margin-top: 20px;"></div>
+
+<video style="width: 100%; height: auto;" controls>
+  <source src="demo-2.webm" type="video/webm">
+</video>
+
+<div style="margin-top: 30px;"></div>
+
+## 1. Project Overview
+### 1.1 Objective
+### 1.2 Importance
+
+
+## 2. Data Description
+
+## 3. System Architecture
+
+<img src="./data_flow.png" style="width: 100%;">
