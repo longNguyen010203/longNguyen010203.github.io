@@ -183,9 +183,89 @@ Gồm các assets:
     - **gold layer**: chứa dữ liệu được tính toán và phân tách.
 
 2. Các file đều ở dạng .parquet để giúp cho việc đọc và nén dữ liệu tốt hơn định dạng .csv
+3. Dữ liệu được partition theo tháng từ 07/2020 đến 05/2024 với các bảng dữ liệu lớn.
 
 ## 4. Crawler Data Process Description
-## 5. Setup Infrastructure
+
+
+
+## 5. Infrastructure
+
+<img src="./infra.png">
+
+Để setup môi trường và cơ sở hạ tầng, ta sử dụng docker để khởi tạo các containers bao gồm:
+
+- **Dagster**: công cụ orchestration hiện đại giúp quản lý, theo dõi, và điều phối các pipeline hoặc workflow dữ liệu. Đặc biệt mạnh mẽ khi áp dụng trong các hệ thống dữ liệu phức tạp.
+
+   - `de_dagster` container: Chạy Dagster.
+   - `de_dagster_daemon` container: Quản lý background jobs.
+   - `de_dagster dagit` container: Giao diện quản lý pipeline.
+
+     - 3001:3001 (Cung cấp giao diện quản lý pipeline dữ liệu)
+
+  <img src="./dagster.png">
+
+- **MinIO**: Được sử dụng làm datalake, chứa dữ liệu được xử lý theo từng cấp độ.
+
+   - `minio` container: đối tượng lưu trữ tương tự như Amazon S3.
+
+     - 9000:9000 (Cho phép giao tiếp với MinIO qua API S3 để lưu trữ và truy xuất dữ liệu.)
+     - 9001:9001 (Giao diện quản lý MinIO thông qua trình duyệt, cung cấp khả năng quản lý bucket, người dùng, và kiểm tra dữ liệu.)
+   - `mc` container: công cụ CLI để quản lý và tương tác với MinIO server
+
+  <img src="./minio.png">
+
+- **Spark**: Spark được cấu hình ở chế độ standalone với 3 worker node(mỗi worker node được chia 1 CPU và 2GB Ram), nhiệm vụ xử lý và làm sạch lượng dữ liệu lớn của project
+  
+  <img src="./spark.png">
+  
+  - `spark-master` container: node điều phối chính trong cluster Apache Spark. Nó quản lý tài nguyên và phân phối các task tới các worker node.
+
+    - 7077:7077 (Cung cấp endpoint để các Spark Worker, ứng dụng Spark Client kết nối đến Spark Master)
+    - 8080:8080 (Cung cấp giao diện quản lý và giám sát trạng thái của cluster Spark, bao gồm các job và worker)
+  - `spark-worker` container: chịu trách nhiệm thực thi các task được phân phối bởi Spark Master.
+
+
+- **MySQL**: Triển khai với version 8.0
+
+   - `de_mysql` container: Đóng vai trò là nguồn dữ liệu
+
+     - 3306:3306 (Endpoint để kết nối với cơ sở dữ liệu MySQL)
+
+- **PostgreSQL**: Triển khai với version 15
+
+   - `de_psql` container: Đóng vai trò là kho dữ liệu.
+
+     - 5432:5432 (Endpoint để kết nối với cơ sở dữ liệu PostgreSQL)
+
+- **ETL Pipeline**: 
+
+   - `etl_pipeline` container: Chứa toàn bộ đường ống dữ liệu.
+
+     - 4041:4040
+
+- **Streamlit**: Cho phép bạn xây dựng giao diện trực quan mà không cần kiến thức chuyên sâu về phát triển web
+
+   - `de_streamlit` container: Cung cấp giao diện hệ thống recommend video.
+
+     - 8501:8501 (Hiển thị ứng dụng hoặc báo cáo tùy chỉnh được viết bằng Python)
+
+  <img src="./streamlit.png">
 
 ## 6. Technical Details
+
+| Công nghệ      | Nhiệm vụ                           |
+|:---------------|:----------------------------------:|
+| Python, SQL    | Lập trình và truy vấn dữ liệu      |
+| Apache Spark   | Xử lý dữ liệu lớn                  |
+| Dagster        | Quản lý và theo dõi        |
+| Docker         | Tạo môi trường và đóng gói         |
+| Youtube API    | Nguồn dữ liệu  |
+| MySQL          | Nguồn dữ liệu               |
+| PostgreSQL     | Kho dữ liệu           |
+| dbt            | chuyển đổi dữ liệu               |
+| Polars         | trích xuất dữ liệu            |
+| MinIO          | hồ dữ liệu               |
+| Streamlit      | Giao diện hệ thống                   |
+
 ## 7. Challenges
