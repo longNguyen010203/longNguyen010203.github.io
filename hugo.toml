@@ -71,7 +71,7 @@ ignoreErrors = ["err-missing-comment-accesstoken", "err-missing-oembed-accesstok
         pre = ""
         post = ""
         name = "Resume 📎"
-        url = "https://drive.google.com/file/d/13SNjy-ME_JvD2rM5g4FjpIEYEY6WoEpp/view?usp=sharing"
+        url = "https://drive.google.com/file/d/17lQfykYoRwebVDkiyLfJeFE1ejiHUqLQ/view?usp=drive_link"
         title = ""
         weight = 6
       [[languages.en.menu.main]]
